@@ -1,14 +1,18 @@
 import express from 'express';
+import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
 
 const app = express();
+
 app.use(express.json());
+app.use(cors());
+
 const prisma = new PrismaClient();
 
 app.post('/users', async (req, res) => {
   const {name, age, email} = req.body
 
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       age: age,
       name: name,
@@ -16,7 +20,7 @@ app.post('/users', async (req, res) => {
     }
   })
 
-  res.status(201).send(req.body);
+  res.status(201).json(user);
 });
 
 app.get('/users', async (req, res) => {
