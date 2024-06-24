@@ -1,5 +1,5 @@
 {
-  "name": "dev-club-api",
+  "name": "mongo-db-user-api",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^5.15.1",
+    "cors": "^2.8.5",
     "express": "^4.19.2"
   },
   "devDependencies": {
